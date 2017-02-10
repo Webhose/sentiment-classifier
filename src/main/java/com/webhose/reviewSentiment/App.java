@@ -24,17 +24,17 @@ public class App
         // Declare and Construct the Domain-Specific Classifier with the general train file
         Classifier<String,String> hotelsCl = cdc.makeClassifier(cdc.readTrainingExamples(Resources.getResource("booking.train").getPath()));
 
-        // General Classifier self test
+        // General Classifier self test (using the 20% data-set from various sources)
         System.out.println("General Classifier stats:");
         System.out.println(setScore("general.test", generalCl));
         System.out.println();
 
-        // Domain-Specifi Classifier self test
+        // Domain-Specific Classifier self test (using the 20% data-set from booking.com)
         System.out.println("Domain-Specific Classifier stats:");
         System.out.println(setScore("booking.test", hotelsCl));
         System.out.println();
 
-        // Compare both of the classifiers with an estranged data-set
+        // Compare both of the classifiers with the estranged data-set (using the data from expedia.com)
         System.out.println("Comparison Results:");
 
         System.out.println("General Classifier score:");
